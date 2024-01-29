@@ -3,6 +3,7 @@
 
 namespace App\Model\Abstract;
 use App\Model\Category;
+use PDO;
 
 abstract class AbstractProduct
 {
@@ -198,7 +199,7 @@ abstract class AbstractProduct
     }
     public function findAll(): array
     {
-        $pdo = new \PDO('mysql:host=localhost;dbname=draft-shop', 'root', '');
+        $pdo = new PDO('mysql:host=localhost:5432;dbname=mvc', 'user', 'pass');
         $sql = "SELECT * FROM product";
         $statement = $pdo->prepare($sql);
         $statement->execute();

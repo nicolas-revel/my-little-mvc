@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "altorouter/altorouter": "2.0.2"
-
+        "altorouter/altorouter": "2.0.2",
+        "ext-pdo": "*"
     }
 }
