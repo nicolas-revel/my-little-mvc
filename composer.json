@@ -1,9 +1,17 @@
 {
-    "name": "nico-rvl/revisions-poo",
+    "name": "axel/my-little-mvc",
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "Axel\\MyLittleMvc\\": "src/",
+            "Axel\\MyLittleMvc\\Model\\": "src/Model/",
+            "Axel\\MyLittleMvc\\Controller\\": "src/Controller/"
         }
     },
+    "authors": [
+        {
+            "name": "Axel",
+            "email": "axel.vair@laplateforme.io"
+        }
+    ],
     "require": {}
 }
