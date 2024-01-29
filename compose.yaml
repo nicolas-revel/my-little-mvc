@@ -7,7 +7,7 @@ services:
       MYSQL_USER: user
       MYSQL_DATABASE: mvc
     ports:
-      - '3306:3306'
+      - '5432:3306'
   adminer:
     image: adminer
     restart: always
