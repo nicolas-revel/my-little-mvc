@@ -1,10 +1,13 @@
 {
-    "name": "axel/my-little-mvc",
+    "name": "mvc/src",
     "autoload": {
         "psr-4": {
-            "Axel\\MyLittleMvc\\": "src/",
-            "Axel\\MyLittleMvc\\Model\\": "src/Model/",
-            "Axel\\MyLittleMvc\\Controller\\": "src/Controller/"
+            "App\\": "src/",
+            "App\\Model\\": "src/Model/",
+            "App\\Model\\Abstract\\": "src/Model/Abstract",
+            "App\\Model\\Interface\\": "src/Model/Interface",
+            "App\\View\\": "src/View",
+            "App\\Controller\\": "src/Controller/"
         }
     },
     "authors": [
@@ -13,5 +16,8 @@
             "email": "axel.vair@laplateforme.io"
         }
     ],
-    "require": {}
+    "require": {
+        "altorouter/altorouter": "2.0.2"
+
+    }
 }
