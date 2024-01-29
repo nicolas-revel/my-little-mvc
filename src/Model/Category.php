@@ -1,7 +1,7 @@
 <?php
 
-namespace App;
 
+namespace App\Model;
 class Category
 {
     private ?int $id;
@@ -104,7 +104,7 @@ class Category
 
         foreach ($results as $result) {
             if (isset($result['size'])) {
-                $products[] = new Clothing(
+                $products[] = new \App\Model\Clothing(
                     $result['id'],
                     $result['name'],
                     json_decode($result['photos']),
@@ -119,7 +119,7 @@ class Category
                     $result['type'],
                 );
             } else {
-                $products[] = new Electronic(
+                $products[] = new \App\Model\Electronic(
                     $result['id'],
                     $result['name'],
                     json_decode($result['photos']),
