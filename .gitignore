@@ -1,3 +1,6 @@
 .idea
 .vscode
 vendor
+composer.lock
+composer.json
+draft-shop.sql
