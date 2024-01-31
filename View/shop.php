@@ -1,17 +1,17 @@
 <?php
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 use App\Model\Clothing;
 use App\Model\Electronic;
 
-$electronic = new Electronic();
+$electronicInstance = new Electronic();
 
-$clothing = new Clothing();
+$clothingInstance = new Clothing();
 
-$electronic->findAll();
+$electronics = $electronicInstance->findAll();
 
-$clothing->findAll();
+$clothings = $clothingInstance->findAll();
 
 ?>
 
@@ -27,7 +27,7 @@ $clothing->findAll();
             <h1>All my Electronics</h1>
 
             <ul>
-                <?php foreach ($electronic->findAll() as $electronicProduct) : ?>
+                <?php foreach ($electronics as $electronic) : ?>
                     <li>
                         <h2><?= $electronic->getName() ?></h2>
                         <p><?= $electronic->getDescription() ?></p>
@@ -35,8 +35,6 @@ $clothing->findAll();
                         <p><?= $electronic->getQuantity() ?></p>
                         <p><?= $electronic->getBrand() ?></p>
                         <p><?= $electronic->getWarantyFee() ?></p>
-                        <p><?= $electronic->getCreatedAt()->format('Y-m-d H:i:s') ?></p>
-                        <p><?= $electronic->getUpdatedAt() ? $electronic->getUpdatedAt()->format('Y-m-d H:i:s') : 'Jamais' ?></p>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -44,7 +42,7 @@ $clothing->findAll();
             <h1>All my Clothings</h1>
 
             <ul>
-                <?php foreach ($clothing->findAll() as $clothingProduct) : ?>
+                <?php foreach ($clothings as $clothing) : ?>
                     <li>
                         <h2><?= $clothing->getName() ?></h2>
                         <p><?= $clothing->getDescription() ?></p>
@@ -53,8 +51,6 @@ $clothing->findAll();
                         <p><?= $clothing->getSize() ?></p>
                         <p><?= $clothing->getColor() ?></p>
                         <p><?= $clothing->getType() ?></p>
-                        <p><?= $clothing->getCreatedAt()->format('Y-m-d H:i:s') ?></p>
-                        <p><?= $clothing->getUpdatedAt() ? $clothing->getUpdatedAt()->format('Y-m-d H:i:s') : 'Jamais' ?></p>
                     </li>
                 <?php endforeach; ?>
             </ul>
