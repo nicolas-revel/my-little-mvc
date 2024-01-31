@@ -7,14 +7,30 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 if (isset($_GET['id_product'])) {
     $electronicInstance = new Electronic();
-    $electronic = $electronicInstance->findOneById($_GET['id_product']);
     $clothingInstance = new Clothing();
+
+    $electronic = $electronicInstance->findOneById($_GET['id_product']);
     $clothing = $clothingInstance->findOneById($_GET['id_product']);
 
-    if ($electronic || $clothing) {
+    if ($electronic && $clothing) {
         echo "<h1>Détails du produit</h1>";
-        echo "<h2>Nom du produit : " . ($electronic ? $electronic->getName() : $clothing->getName()) . "</h2>";
-        echo "<p>Description du produit : " . ($electronic ? $electronic->getDescription() : $clothing->getDescription()) . "</p>";
+        echo "<h2>Nom du produit (Electronic) : " . $electronic->getName() . "</h2>";
+        echo "<p>Description du produit (Electronic) : " . $electronic->getDescription() . "</p>";
+        echo "<p>Prix du produit (Electronic) : " . $electronic->getPrice() . "</p>";
+        echo "<p>Quantité du produit (Electronic) : " . $electronic->getQuantity() . "</p>";
+
+        echo "<h2>Nom du produit (Clothing) : " . $clothing->getName() . "</h2>";
+        echo "<p>Description du produit (Clothing) : " . $clothing->getDescription() . "</p>";
+        echo "<p>Prix du produit (Clothing) : " . $clothing->getPrice() . "</p>";
+        echo "<p>Quantité du produit (Clothing) : " . $clothing->getQuantity() . "</p>";
+        
+    } elseif ($electronic || $clothing) {
+        $product = $electronic ? $electronic : $clothing;
+        echo "<h1>Détails du produit</h1>";
+        echo "<h2>Nom du produit : " . $product->getName() . "</h2>";
+        echo "<p>Description du produit : " . $product->getDescription() . "</p>";
+        echo "<p>Prix du produit : " . $product->getPrice() . "</p>";
+        echo "<p>Quantité du produit : " . $product->getQuantity() . "</p>";
     } else {
         echo "<p>Le produit n'est pas disponible.</p>";
     }
